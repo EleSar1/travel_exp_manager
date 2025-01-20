@@ -19,7 +19,9 @@ for day in range(travel_days):
 for category in expenses_for_category.keys():
     expenses_for_category[category].append(sum(expenses_for_category[category]))  #add sum of total expenses for category to the lists (values inside the dictionary expenses_for_category)
 
-print(expenses_for_category)
-
+print('Total expenses for:')
 for category, total_for_category in expenses_for_category.items():
-    print(total_for_category[-1])
+    if total_for_category[-1].is_integer():
+        print(f'{category}: {int(total_for_category[-1])}')
+    else:
+        print(f'{category}: {total_for_category[-1]:.2f}')
