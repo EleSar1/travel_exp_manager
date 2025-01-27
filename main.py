@@ -41,3 +41,26 @@ if budget < grandtotal:
 else: 
     print("You are staying within the set budget!")
 
+choice = input("Do you want to modify any expense? Y/N\n").upper()
+if choice == "Y":
+    category_to_change = input("Please choose a category between\nLodging | Meals | Transport | Other\n").capitalize()
+    if category_to_change in expenses_for_category.keys():
+        day_to_change = int(input("Please select the day: "))
+        if day_to_change > travel_days or day_to_change < 1: 
+            print("Error. Day not found.")
+        else: 
+            new_expense = float(input(f"Please enter the new expense for day {day_to_change}: $"))
+            expenses_for_category[category_to_change][day_to_change-1] = new_expense
+            expenses_for_category[category_to_change].pop()             #delete the total expense for the selected category
+            expenses_for_category[category_to_change].append(sum(expenses_for_category[category_to_change]))
+            new_grandtotal = []
+            for total_for_category in expenses_for_category.values():
+                new_grandtotal.append(total_for_category[-1])
+            new_grandtotal = sum(new_grandtotal)
+            print(f"New total expenses for:")
+            for category, expense in expenses_for_category.items():    
+                if expense[-1].is_integer:
+                    print(f"{category}: ${int(expense[-1])}")
+                else:
+                    print(f"{category}: ${expense[-1]:.2f}")
+            print(f"Grandtotal: ${new_grandtotal:.2f}")
