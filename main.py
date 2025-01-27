@@ -9,7 +9,6 @@ expenses_for_category = {"Lodging": [0] * travel_days,
                          "Other": [0] * travel_days}
 
 
-
 for day in range(travel_days):
     print(f"Day {day + 1}:")
     for category in expenses_for_category.keys():
@@ -35,7 +34,6 @@ if grandtotal.is_integer():
 else: 
     print(f"Grandtotal: {grandtotal:.2f}")
 
-
 if budget < grandtotal: 
     print("Your expenses exceed the entered budget.")
 else: 
@@ -53,6 +51,7 @@ if choice == "Y":
             expenses_for_category[category_to_change][day_to_change-1] = new_expense
             expenses_for_category[category_to_change].pop()             #delete the total expense for the selected category
             expenses_for_category[category_to_change].append(sum(expenses_for_category[category_to_change]))
+
             new_grandtotal = []
             for total_for_category in expenses_for_category.values():
                 new_grandtotal.append(total_for_category[-1])
@@ -63,4 +62,12 @@ if choice == "Y":
                     print(f"{category}: ${int(expense[-1])}")
                 else:
                     print(f"{category}: ${expense[-1]:.2f}")
-            print(f"Grandtotal: ${new_grandtotal:.2f}")
+            if grandtotal.is_integer():
+                print(f"Grandtotal: ${int(new_grandtotal)}")
+            else: 
+                print(f"Grandtotal: ${new_grandtotal:.2f}")
+
+            if budget < new_grandtotal:
+                print("Your expenses exceed the entered budget.")
+            else:
+                print("You are staying within the set budget!")
