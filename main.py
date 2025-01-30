@@ -32,9 +32,14 @@ def get_travel_details():
     return travel_days, budget
 
 
-def initialize_expenses():
+def initialize_expenses(travel_days):
+    
+    expenses_for_category = {"Lodging": [0] * travel_days,  
+                         "Meals": [0] * travel_days,
+                         "Transport": [0] * travel_days,
+                         "Other": [0] * travel_days}
 
-    pass
+    return expenses_for_category
 
 
 def collect_expenses():
