@@ -97,10 +97,8 @@ def calculate_category_totals(expenses_for_category):
     The total is appended as the last element of each category's expense list.
 
     Args:
-        expenses_for_category (dict): A dictionary where keys are expense categories 
-                                      (e.g., "Lodging", "Meals") and values are lists 
-                                      containing daily expenses for that category.
-
+        expenses_for_category (dict)
+        
     Returns:
         dict: The updated dictionary with the total expense for each category 
               appended at the end of the corresponding list.
