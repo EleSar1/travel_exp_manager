@@ -34,6 +34,19 @@ def get_travel_details():
 
 def initialize_expenses(travel_days):
     
+    """
+    Initializes a dictionary to store travel expenses for different categories.  
+    Each category will have a list of zeros, one for each travel day.
+
+    Args:
+        travel_days (int): The number of days for the trip.
+
+    Returns:
+        dict: A dictionary where keys are expense categories  
+              ("Lodging", "Meals", "Transport", "Other")  
+              and values are lists of zeros with a length equal to travel_days.
+    """
+    
     expenses_for_category = {"Lodging": [0] * travel_days,  
                          "Meals": [0] * travel_days,
                          "Transport": [0] * travel_days,
