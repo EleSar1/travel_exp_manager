@@ -90,9 +90,12 @@ def collect_expenses(travel_days, expenses_for_category):
     return expenses_for_category
 
 
-def calculate_category_totals():
+def calculate_category_totals(expenses_for_category):
     
-    pass
+    for expense in expenses_for_category.values():
+        expense.append(sum(expense))
+        
+    return expenses_for_category
 
 
 def calculate_grandtotal():
