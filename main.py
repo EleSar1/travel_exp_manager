@@ -98,7 +98,7 @@ def calculate_category_totals(expenses_for_category):
 
     Args:
         expenses_for_category (dict)
-        
+
     Returns:
         dict: The updated dictionary with the total expense for each category 
               appended at the end of the corresponding list.
@@ -112,9 +112,14 @@ def calculate_category_totals(expenses_for_category):
     return expenses_for_category
 
 
-def calculate_grandtotal():
+def calculate_grandtotal(expenses_for_category):
     
-    pass
+    grandtotal = []
+    for total_for_category in expenses_for_category.values():
+        grandtotal.append(total_for_category[-1])
+    grandtotal = sum(grandtotal)
+    
+    return grandtotal
 
 
 def display_totals():
