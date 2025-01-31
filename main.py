@@ -91,10 +91,26 @@ def collect_expenses(travel_days, expenses_for_category):
 
 
 def calculate_category_totals(expenses_for_category):
-    
+
+    """
+    Calculates the total expenses for each category by summing all daily expenses.  
+    The total is appended as the last element of each category's expense list.
+
+    Args:
+        expenses_for_category (dict): A dictionary where keys are expense categories 
+                                      (e.g., "Lodging", "Meals") and values are lists 
+                                      containing daily expenses for that category.
+
+    Returns:
+        dict: The updated dictionary with the total expense for each category 
+              appended at the end of the corresponding list.
+    """
+
     for expense in expenses_for_category.values():
+        # Append the sum of all daily expenses to the list
         expense.append(sum(expense))
-        
+    
+    # Return the updated dictionary with total expenses added
     return expenses_for_category
 
 
