@@ -14,7 +14,7 @@ def get_travel_details():
     travel_days = 0
     while travel_days < 1:
         try: 
-            travel_days = int(input("How many days will your trip lasts? "))
+            travel_days = int(input("How many days will your trip last? "))
             if travel_days < 1:
                 print("The number of days must be at least 1.")
         except ValueError:
@@ -46,7 +46,7 @@ def initialize_expenses(travel_days):
               ("Lodging", "Meals", "Transport", "Other")  
               and values are lists of zeros with a length equal to travel_days.
     """
-    
+
     expenses_for_category = {"Lodging": [0] * travel_days,  
                          "Meals": [0] * travel_days,
                          "Transport": [0] * travel_days,
@@ -55,10 +55,19 @@ def initialize_expenses(travel_days):
     return expenses_for_category
 
 
-def collect_expenses():
+def collect_expenses(travel_days, expenses_for_category):
     
-    pass
-
+    for day in range(travel_days):
+        print("Please enter your expenses for the corresponding day and category.")
+        print(f"Day {day + 1}")
+        for category in expenses_for_category.keys():
+            expense = input(f"{category}: $")
+            expenses_for_category[category][day] = float(expense)
+    
+    for category, expenses in expenses_for_category.items():
+        expenses.append(sum(expenses))
+    
+    return expenses_for_category
 
 def calculate_category_totals():
     
