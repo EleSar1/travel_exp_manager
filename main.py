@@ -74,6 +74,7 @@ def collect_expenses(travel_days, expenses_for_category):
     for day in range(travel_days):
         print("Please enter your expenses for the corresponding day and category.")
         print(f"Day {day + 1}")
+        # Loop through each category to get the expense for that day
         for category, empty_expense in expenses_for_category.items():
             expense = -1
             while expense < 0:
@@ -83,6 +84,7 @@ def collect_expenses(travel_days, expenses_for_category):
                         print("The expense cannot be negative.")
                 except ValueError:
                     print("Wrong value. Please insert a valid number.")
+            # Store the entered expense in the correct position for the current day
             empty_expense[day] = expense
     
     return expenses_for_category
