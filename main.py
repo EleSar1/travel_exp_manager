@@ -113,10 +113,23 @@ def calculate_category_totals(expenses_for_category):
 
 
 def calculate_grandtotal(expenses_for_category):
-    
-    grandtotal = []
+    """
+    Calculates the grand total of all expenses by summing the total expenses  
+    for each category.
+
+    Args:
+        expenses_for_category (dict)
+
+    Returns:
+        float: The grand total of all expenses across all categories.
+    """
+
+    grandtotal = [] # Initialize an empty list to store category totals
+
+    # Iterate over each category's list and extract the last element (total for that category)
     for total_for_category in expenses_for_category.values():
         grandtotal.append(total_for_category[-1])
+    # Compute the grand total by summing up all category totals
     grandtotal = sum(grandtotal)
     
     return grandtotal
