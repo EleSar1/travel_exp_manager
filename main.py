@@ -61,11 +61,15 @@ def collect_expenses(travel_days, expenses_for_category):
         print("Please enter your expenses for the corresponding day and category.")
         print(f"Day {day + 1}")
         for category in expenses_for_category.keys():
-            expense = input(f"{category}: $")
-            expenses_for_category[category][day] = float(expense)
-    
-    for category, expenses in expenses_for_category.items():
-        expenses.append(sum(expenses))
+            expense = -1
+            while expense < 0:
+                try:
+                    expense = float(input(f"{category}: $"))
+                    if expense < 0:
+                        print("The expense cannot be negative.")
+                except ValueError:
+                    print("Wrong value. Please insert a valid number.")
+            expenses_for_category[category][day] = expense
     
     return expenses_for_category
 
