@@ -12,6 +12,7 @@ def get_travel_details():
     """
 
     travel_days = 0
+     # Loop continues until the user enters a valid number for the number of travel days
     while travel_days < 1:
         try: 
             travel_days = int(input("How many days will your trip last? "))
@@ -21,6 +22,7 @@ def get_travel_details():
             print("Wrong value. Please enter a valid integer.")
 
     budget = -1
+    # Loop continues until the user enters a valid value for the budget
     while budget < 0:
         try:
             budget = float(input("How much is your budget for this trip? $"))
