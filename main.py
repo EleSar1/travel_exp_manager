@@ -56,11 +56,23 @@ def initialize_expenses(travel_days):
 
 
 def collect_expenses(travel_days, expenses_for_category):
-    
+
+    """
+    Collects daily expenses for each category from user input.  
+    Ensures that the input is a valid non-negative number.
+
+    Args:
+        travel_days (int)
+        expenses_for_category (dict)
+
+    Returns:
+        dict: The updated dictionary with collected expenses per day for each category.
+    """
+
     for day in range(travel_days):
         print("Please enter your expenses for the corresponding day and category.")
         print(f"Day {day + 1}")
-        for category in expenses_for_category.keys():
+        for category, empty_expense in expenses_for_category.items():
             expense = -1
             while expense < 0:
                 try:
@@ -69,9 +81,10 @@ def collect_expenses(travel_days, expenses_for_category):
                         print("The expense cannot be negative.")
                 except ValueError:
                     print("Wrong value. Please insert a valid number.")
-            expenses_for_category[category][day] = expense
+            empty_expense[day] = expense
     
     return expenses_for_category
+
 
 def calculate_category_totals():
     
