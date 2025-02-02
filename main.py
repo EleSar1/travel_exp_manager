@@ -32,7 +32,7 @@ def get_travel_details():
     return travel_days, budget
 
 
-def initialize_expenses(travel_days):
+def initialize_expenses(travel_days: int):
     
     """
     Initializes a dictionary to store travel expenses for different categories.  
@@ -55,7 +55,7 @@ def initialize_expenses(travel_days):
     return expenses_for_category
 
 
-def collect_expenses(travel_days, expenses_for_category):
+def collect_expenses(travel_days: int, expenses_for_category: dict):
 
     """
     Collects daily expenses for each category from user input.  
@@ -87,7 +87,7 @@ def collect_expenses(travel_days, expenses_for_category):
     return expenses_for_category
 
 
-def calculate_category_totals(expenses_for_category):
+def calculate_category_totals(expenses_for_category: dict):
 
     """
     Calculates the total expenses for each category by summing all daily expenses.  
@@ -107,7 +107,7 @@ def calculate_category_totals(expenses_for_category):
     return expenses_for_category
 
 
-def calculate_grandtotal(expenses_for_category):
+def calculate_grandtotal(expenses_for_category: dict):
     """
     Calculates the grand total of all expenses by summing the total expenses  
     for each category.
