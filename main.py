@@ -134,9 +134,12 @@ def display_totals():
     pass
 
 
-def check_budget():
+def check_budget(budget: float, grandtotal: float):
 
-    pass
+    if budget < grandtotal:
+        print("Warning: Your expenses exceed the entered budget.")
+    else:
+        print("Good job! You are staying within the set budget.")
 
 
 def modify_expenses():
