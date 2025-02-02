@@ -10,7 +10,7 @@ def get_travel_details():
         - travel_days: The number of days for the trip (must be at least 1).  
         - budget: The total budget for the trip (must be non-negative).  
     """
-
+    
     travel_days = 0
     while travel_days < 1:
         try: 
@@ -135,7 +135,17 @@ def display_totals():
 
 
 def check_budget(budget: float, grandtotal: float):
+    """
+    Compares the total expenses with the budget and provides feedback.
 
+    Args:
+        budget (float): The total budget for the trip.
+        grandtotal (float): The total expenses.
+
+    Returns:
+        None
+    """
+    
     if budget < grandtotal:
         print("Warning: Your expenses exceed the entered budget.")
     else:
