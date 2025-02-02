@@ -12,7 +12,6 @@ def get_travel_details():
     """
 
     travel_days = 0
-     # Loop continues until the user enters a valid number for the number of travel days
     while travel_days < 1:
         try: 
             travel_days = int(input("How many days will your trip last? "))
@@ -22,7 +21,6 @@ def get_travel_details():
             print("Wrong value. Please enter a valid integer.")
 
     budget = -1
-    # Loop continues until the user enters a valid value for the budget
     while budget < 0:
         try:
             budget = float(input("How much is your budget for this trip? $"))
@@ -74,7 +72,6 @@ def collect_expenses(travel_days, expenses_for_category):
     for day in range(travel_days):
         print("Please enter your expenses for the corresponding day and category.")
         print(f"Day {day + 1}")
-        # Loop through each category to get the expense for that day
         for category, empty_expense in expenses_for_category.items():
             expense = -1
             while expense < 0:
@@ -105,10 +102,8 @@ def calculate_category_totals(expenses_for_category):
     """
 
     for expense in expenses_for_category.values():
-        # Append the sum of all daily expenses to the list
         expense.append(sum(expense))
     
-    # Return the updated dictionary with total expenses added
     return expenses_for_category
 
 
@@ -124,12 +119,11 @@ def calculate_grandtotal(expenses_for_category):
         float: The grand total of all expenses across all categories.
     """
 
-    grandtotal = [] # Initialize an empty list to store category totals
+    grandtotal = [] 
 
     # Iterate over each category's list and extract the last element (total for that category)
     for total_for_category in expenses_for_category.values():
         grandtotal.append(total_for_category[-1])
-    # Compute the grand total by summing up all category totals
     grandtotal = sum(grandtotal)
     
     return grandtotal
