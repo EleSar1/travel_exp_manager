@@ -1,3 +1,4 @@
+from tabulate import tabulate 
 
 def get_travel_details():
     
@@ -69,8 +70,9 @@ def collect_expenses(travel_days: int, expenses_for_category: dict):
         dict: The updated dictionary with collected expenses per day for each category.
     """
 
+    print("Please enter your expenses for the corresponding day and category.")
+
     for day in range(travel_days):
-        print("Please enter your expenses for the corresponding day and category.")
         print(f"Day {day + 1}")
         for category, empty_expense in expenses_for_category.items():
             expense = -1
@@ -129,9 +131,21 @@ def calculate_grandtotal(expenses_for_category: dict):
     return grandtotal
 
 
-def display_totals():
+def display_totals(expenses_for_category: dict, grandtotal: float, travel_days: int):
 
-    pass
+    header = ["Category"] + [f"Day {day + 1}" for day in range(travel_days)] + ["Total"]
+    table = []
+
+    for category, expenses in expenses_for_category.items():
+        formatted_expenses = [f"${int(expense)}" if expense.is_integer() else f"${expense:.2f}" for expense in expenses]
+        table.append([category, *formatted_expenses])
+    
+    print(tabulate(table, headers=header, tablefmt="grid"))
+
+    if grandtotal.is_integer():
+        print(f"\nGrandtotal: ${int(grandtotal)}\n")
+    else:
+        print(f"\nGrandtotal: ${grandtotal:.2f}\n")
 
 
 def check_budget(budget: float, grandtotal: float):
@@ -158,8 +172,8 @@ def modify_expenses():
 
 
 def main():
-    
-    pass
+
+    pass 
 
 
 if __name__ == "__main__":
