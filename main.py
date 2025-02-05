@@ -110,6 +110,7 @@ def calculate_category_totals(expenses_for_category: dict):
 
 
 def calculate_grandtotal(expenses_for_category: dict):
+    
     """
     Calculates the grand total of all expenses by summing the total expenses  
     for each category.
@@ -132,6 +133,20 @@ def calculate_grandtotal(expenses_for_category: dict):
 
 
 def display_totals(expenses_for_category: dict, grandtotal: float, travel_days: int):
+
+    """
+    Displays a summary table of daily expenses for each category, along with the total per category
+    and the grand total for all expenses.
+
+    Args:
+        expenses_for_category (dict): A dictionary where keys are expense categories and values are lists
+                                      containing daily expenses and the total expense for that category.
+        grandtotal (float): The total amount spent across all categories.
+        travel_days (int): The number of days in the trip, used to format the table header.
+
+    Returns:
+        None: The function prints the summary table and the grand total.
+    """
 
     header = ["Category"] + [f"Day {day + 1}" for day in range(travel_days)] + ["Total"]
     table = []
