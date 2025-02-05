@@ -173,7 +173,13 @@ def modify_expenses():
 
 def main():
 
-    pass 
+    travel_days, budget = get_travel_details()
+    expenses_for_category_empty = initialize_expenses(travel_days)
+    updated_exp_for_category = collect_expenses(travel_days, expenses_for_category_empty)
+    exp_for_category_with_total = calculate_category_totals(updated_exp_for_category)
+    grandtotal = calculate_grandtotal(exp_for_category_with_total)
+    print_totals = display_totals(exp_for_category_with_total, grandtotal, travel_days)
+    check_budget = check_budget(budget, grandtotal) 
 
 
 if __name__ == "__main__":
