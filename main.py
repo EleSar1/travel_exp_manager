@@ -241,6 +241,27 @@ def modify_expenses(expenses_for_category: float, travel_days: int):
 
 
 def main():
+    
+    """
+    Main function that manages the entire process of collecting and modifying travel expenses.
+
+    This function orchestrates the following steps:
+    1. Collect travel details and initialize expenses for each category.
+    2. Collect expenses for each category and day of the trip.
+    3. Display the totals of the expenses and check the budget before any modifications.
+    4. Allow the user to modify any expense if necessary, repeating until the user opts to stop.
+    5. After any modifications, recalculate and display the updated totals and check the budget.
+
+    The function allows the user to:
+    - Choose whether to modify any expenses.
+    - Modify a specific category and day of the trip with updated expenses.
+    - View the updated totals and budget status after modifications.
+
+    No arguments are required, and the function directly interacts with the user for input.
+
+    Returns:
+        None: The function does not return any value. It operates by modifying the expenses dictionary and displaying outputs.
+    """
 
     # Step 1: Get travel details and initialize expenses
     travel_days, budget = get_travel_details()
