@@ -182,6 +182,27 @@ def check_budget(budget: float, grandtotal: float):
 
 
 def modify_expenses(expenses_for_category: float, travel_days: int):
+    
+    """
+    Modify the expense for a specific category and day during a trip.
+
+    This function allows the user to:
+    1. Choose a category from a predefined list (Lodging, Meals, Transport, Other).
+    2. Select the day of the trip (within the given travel days).
+    3. Enter a new expense for the selected category and day.
+    
+    The function ensures that:
+    - The selected category is valid.
+    - The entered day is within the allowed range.
+    - The entered expense is a valid non-negative number.
+
+    Args:
+        expenses_for_category (dict): A dictionary containing expenses for each category. Each category is a key, and its corresponding value is a list of expenses.
+        travel_days (int): The total number of days of the trip.
+
+    Returns:
+        dict: The updated dictionary of expenses, with the modified expense for the specified category and day.
+    """
 
     category_to_change = ""
 
