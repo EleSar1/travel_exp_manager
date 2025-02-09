@@ -181,7 +181,7 @@ def check_budget(budget: float, grandtotal: float):
         print("Good job! You are staying within the set budget.")
 
 
-def modify_expenses(expenses_for_category, travel_days):
+def modify_expenses(expenses_for_category: float, travel_days: int):
 
     category_to_change = ""
 
